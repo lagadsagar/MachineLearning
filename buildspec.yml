@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.12.4
+    commands:
+      - echo Installing Python dependencies...
+      - pip install -r requirements.txt
+  pre_build:
+    commands:
+      - echo Preparing to build...
+  build:
+    commands:
+      - echo Building the project...
+      - mkdir -p build
+      - cp -r * build/
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: yes
+  base-directory: build
